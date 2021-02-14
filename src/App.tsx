@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import List from "./Components/ListItemView"
 import './App.css';
 
 function App() {
+  const [appState, setAppState] = useState<{
+    records: any[] | null}> ({records:null})
+  useEffect(() => {
+    fetch(`https://inspirehep.net/api/literature`)
+      .then((res) => res.json())
+      .then((records) => {
+        setAppState({ records: records.hits.hits });
+      });
+  }, [setAppState]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Testing
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="MainPage">
+      <div>
+        <List records={appState.records} />
+      </div>
     </div>
   );
 }
-
 export default App;
