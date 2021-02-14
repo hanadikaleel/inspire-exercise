@@ -12,7 +12,7 @@ function Main() {
       });
   }, [setAppState]);
   return (
-    <div className="MainPage">
+    <div className="Page">
       <div>
         <p className='results'> Total Results: {appState.records?.length}</p>
       </div>

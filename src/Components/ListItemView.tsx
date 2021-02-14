@@ -12,7 +12,6 @@ const List = (props: any) => {
                     <Link style={{ textDecoration: "none" }} to={{ pathname: `/item/${record.id}`,state: { record } }}>
                     <p className="record-title"> {record.metadata.titles[0].title} </p> {" "}
                     </Link>
-                    
                     <p className="record-description">{record.metadata.abstracts[0].value}</p>
                 </p>   
              );
