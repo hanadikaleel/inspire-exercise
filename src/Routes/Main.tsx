@@ -5,7 +5,7 @@ function Main() {
   const [appState, setAppState] = useState<{
     records: any[] | null}> ({records:null})
   useEffect(() => {
-    fetch(`https://inspirehep.net/api/literature`)
+    fetch(`https://inspirehep.net/api/literature?fields=titles.title,abstracts.value`)
       .then((res) => res.json())
       .then((records) => {
         setAppState({ records: records.hits.hits });
