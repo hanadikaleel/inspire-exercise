@@ -15,6 +15,9 @@ function App() {
   return (
     <div className="MainPage">
       <div>
+        <p className='results'> Total Results: {appState.records?.length}</p>
+      </div>
+      <div>
         <List records={appState.records} />
       </div>
     </div>
