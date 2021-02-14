@@ -1,26 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import List from "./Components/ListItemView"
+import {Component} from 'react';
+import { BrowserRouter , Route, Switch } from 'react-router-dom';
 import './App.css';
+import Main from './Routes/Main'
 
-function App() {
-  const [appState, setAppState] = useState<{
-    records: any[] | null}> ({records:null})
-  useEffect(() => {
-    fetch(`https://inspirehep.net/api/literature`)
-      .then((res) => res.json())
-      .then((records) => {
-        setAppState({ records: records.hits.hits });
-      });
-  }, [setAppState]);
+
+class App extends Component {
+  state = {
+    redirect: false
+}
+render() {
   return (
-    <div className="MainPage">
-      <div>
-        <p className='results'> Total Results: {appState.records?.length}</p>
-      </div>
-      <div>
-        <List records={appState.records} />
-      </div>
-    </div>
-  );
+  <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={Main} />
+    </Switch>
+  </BrowserRouter>
+    )
+  }
 }
 export default App;
