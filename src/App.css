@@ -22,6 +22,10 @@ p {
   text-align: left;
 }
 
+.back{
+  font-weight: bold;
+  margin-top: 80px;
+}
 
 .record-description {
   padding: 0px;
@@ -38,4 +42,10 @@ p {
   background-color: white;
 }
 
-
+.abstract {
+  padding: 0px;
+  font-size:10pt;
+  text-align: left;
+  color: black;
+  font-weight: normal;
+}
