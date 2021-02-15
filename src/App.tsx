@@ -14,7 +14,7 @@ render() {
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Main} />
-      <Route path='/item/:repoId'component={ItemView} />
+      <Route path='/item/:recordId'component={ItemView} />
     </Switch>
   </BrowserRouter>
     )
